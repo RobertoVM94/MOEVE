@@ -1,0 +1,28 @@
+app.js
+import { useEffect, useState } from 'react'
+import TasksBox from './components/TasksBox.js'
+
+function App() {
+  const [tasks, setTasks] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:8000/api/tasks')
+    .then(res => res.json())
+    .then(res=> setTasks(res))
+  }, [])
+  return(
+    <main>
+      <h1>App de Listado de Tareas</h1>
+      <TasksBox />
+    </main>
+
+  );
+}
+
+export default App;
+
+TasksBox:
+export default function TasksBox() {
+    return (
+        <h2>Hello there</h2>
+    )
+}
